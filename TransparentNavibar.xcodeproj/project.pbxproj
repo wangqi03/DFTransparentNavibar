@@ -1,0 +1,346 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA725F311F03448A004DCD11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F301F03448A004DCD11 /* main.m */; };
+		AA725F341F03448A004DCD11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F331F03448A004DCD11 /* AppDelegate.m */; };
+		AA725F371F03448A004DCD11 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F361F03448A004DCD11 /* ViewController.m */; };
+		AA725F3A1F03448A004DCD11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA725F381F03448A004DCD11 /* Main.storyboard */; };
+		AA725F3C1F03448A004DCD11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA725F3B1F03448A004DCD11 /* Assets.xcassets */; };
+		AA725F3F1F03448A004DCD11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA725F3D1F03448A004DCD11 /* LaunchScreen.storyboard */; };
+		AA725F4D1F0344E5004DCD11 /* DFTransparentNavibarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F481F0344E5004DCD11 /* DFTransparentNavibarConfigure.m */; };
+		AA725F4E1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F4A1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m */; };
+		AA725F4F1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F4C1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA725F2C1F03448A004DCD11 /* TransparentNavibar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransparentNavibar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA725F301F03448A004DCD11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AA725F321F03448A004DCD11 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AA725F331F03448A004DCD11 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AA725F351F03448A004DCD11 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AA725F361F03448A004DCD11 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AA725F391F03448A004DCD11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA725F3B1F03448A004DCD11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA725F3E1F03448A004DCD11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AA725F401F03448A004DCD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA725F471F0344E5004DCD11 /* DFTransparentNavibarConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFTransparentNavibarConfigure.h; sourceTree = "<group>"; };
+		AA725F481F0344E5004DCD11 /* DFTransparentNavibarConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFTransparentNavibarConfigure.m; sourceTree = "<group>"; };
+		AA725F491F0344E5004DCD11 /* UINavigationController+TransparentNavibar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+TransparentNavibar.h"; sourceTree = "<group>"; };
+		AA725F4A1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+TransparentNavibar.m"; sourceTree = "<group>"; };
+		AA725F4B1F0344E5004DCD11 /* UIViewController+TransparentNavibar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TransparentNavibar.h"; sourceTree = "<group>"; };
+		AA725F4C1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TransparentNavibar.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA725F291F03448A004DCD11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA725F231F03448A004DCD11 = {
+			isa = PBXGroup;
+			children = (
+				AA725F2E1F03448A004DCD11 /* TransparentNavibar */,
+				AA725F2D1F03448A004DCD11 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA725F2D1F03448A004DCD11 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA725F2C1F03448A004DCD11 /* TransparentNavibar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA725F2E1F03448A004DCD11 /* TransparentNavibar */ = {
+			isa = PBXGroup;
+			children = (
+				AA725F461F0344E5004DCD11 /* DFTransparentNavibar */,
+				AA725F321F03448A004DCD11 /* AppDelegate.h */,
+				AA725F331F03448A004DCD11 /* AppDelegate.m */,
+				AA725F351F03448A004DCD11 /* ViewController.h */,
+				AA725F361F03448A004DCD11 /* ViewController.m */,
+				AA725F381F03448A004DCD11 /* Main.storyboard */,
+				AA725F3B1F03448A004DCD11 /* Assets.xcassets */,
+				AA725F3D1F03448A004DCD11 /* LaunchScreen.storyboard */,
+				AA725F401F03448A004DCD11 /* Info.plist */,
+				AA725F2F1F03448A004DCD11 /* Supporting Files */,
+			);
+			path = TransparentNavibar;
+			sourceTree = "<group>";
+		};
+		AA725F2F1F03448A004DCD11 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA725F301F03448A004DCD11 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA725F461F0344E5004DCD11 /* DFTransparentNavibar */ = {
+			isa = PBXGroup;
+			children = (
+				AA725F471F0344E5004DCD11 /* DFTransparentNavibarConfigure.h */,
+				AA725F481F0344E5004DCD11 /* DFTransparentNavibarConfigure.m */,
+				AA725F491F0344E5004DCD11 /* UINavigationController+TransparentNavibar.h */,
+				AA725F4A1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m */,
+				AA725F4B1F0344E5004DCD11 /* UIViewController+TransparentNavibar.h */,
+				AA725F4C1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m */,
+			);
+			path = DFTransparentNavibar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA725F2B1F03448A004DCD11 /* TransparentNavibar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA725F431F03448A004DCD11 /* Build configuration list for PBXNativeTarget "TransparentNavibar" */;
+			buildPhases = (
+				AA725F281F03448A004DCD11 /* Sources */,
+				AA725F291F03448A004DCD11 /* Frameworks */,
+				AA725F2A1F03448A004DCD11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TransparentNavibar;
+			productName = TransparentNavibar;
+			productReference = AA725F2C1F03448A004DCD11 /* TransparentNavibar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA725F241F03448A004DCD11 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = wangqi03;
+				TargetAttributes = {
+					AA725F2B1F03448A004DCD11 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AA725F271F03448A004DCD11 /* Build configuration list for PBXProject "TransparentNavibar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA725F231F03448A004DCD11;
+			productRefGroup = AA725F2D1F03448A004DCD11 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA725F2B1F03448A004DCD11 /* TransparentNavibar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA725F2A1F03448A004DCD11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA725F3F1F03448A004DCD11 /* LaunchScreen.storyboard in Resources */,
+				AA725F3C1F03448A004DCD11 /* Assets.xcassets in Resources */,
+				AA725F3A1F03448A004DCD11 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA725F281F03448A004DCD11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA725F371F03448A004DCD11 /* ViewController.m in Sources */,
+				AA725F4F1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m in Sources */,
+				AA725F341F03448A004DCD11 /* AppDelegate.m in Sources */,
+				AA725F4E1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m in Sources */,
+				AA725F311F03448A004DCD11 /* main.m in Sources */,
+				AA725F4D1F0344E5004DCD11 /* DFTransparentNavibarConfigure.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AA725F381F03448A004DCD11 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA725F391F03448A004DCD11 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AA725F3D1F03448A004DCD11 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA725F3E1F03448A004DCD11 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA725F411F03448A004DCD11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA725F421F03448A004DCD11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA725F441F03448A004DCD11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TransparentNavibar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wang.TransparentNavibar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA725F451F03448A004DCD11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TransparentNavibar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wang.TransparentNavibar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA725F271F03448A004DCD11 /* Build configuration list for PBXProject "TransparentNavibar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA725F411F03448A004DCD11 /* Debug */,
+				AA725F421F03448A004DCD11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA725F431F03448A004DCD11 /* Build configuration list for PBXNativeTarget "TransparentNavibar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA725F441F03448A004DCD11 /* Debug */,
+				AA725F451F03448A004DCD11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA725F241F03448A004DCD11 /* Project object */;
+}
