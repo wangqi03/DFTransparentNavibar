@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIViewController+TransparentNavibar.h"
+#import "DFTransparentNavibarConfigure.h"
 
 @interface ViewController ()
 
@@ -16,14 +17,17 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    self.navibarAlpha = 0;
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.title = @"hello";
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toNext"]) {
+        ((ViewController*)segue.destinationViewController).navibarAlpha = 1;
+        segue.destinationViewController.title = @"again";
+    }
 }
 
 

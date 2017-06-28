@@ -7,6 +7,7 @@
 
 #import "UINavigationController+TransparentNavibar.h"
 #import "UIViewController+TransparentNavibar.h"
+#import "DFTransparentNavibarConfigure.h"
 #import <objc/runtime.h>
 
 //system version
@@ -131,7 +132,6 @@
 #pragma mark - push & pop
 - (void)__tnw_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self __tnw_setRealDelegate:self];
-    
     UIViewController* lastVC = [self.viewControllers lastObject];
     
     [self __tnw_pushViewController:viewController animated:animated];

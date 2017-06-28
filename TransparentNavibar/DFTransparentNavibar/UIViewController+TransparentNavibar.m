@@ -61,27 +61,31 @@
 
 - (void)__tnw_viewDidLoad {
     [self __tnw_viewDidLoad];
-    
+  
     if ([self isKindOfClass:[UINavigationController class]]) {
-        if ([DFTransparentNavibarConfigure config].normalNaviBgImage||[DFTransparentNavibarConfigure config].normalNaviBgColor) {
-            
-            ((UINavigationController*)self).navigationBar.translucent = NO;
-            
-            [((UINavigationController*)self).navigationBar setShadowImage:[UIImage new]];
-            if ([DFTransparentNavibarConfigure config].normalNaviBgImage) {
-                [((UINavigationController*)self).navigationBar setBackgroundImage:[DFTransparentNavibarConfigure config].normalNaviBgImage forBarMetrics:UIBarMetricsDefault];
-            } else {
-                CGRect rect = CGRectMake(0.0f, 0.0f, [UIApplication sharedApplication].keyWindow.frame.size.width, 64);
-                UIGraphicsBeginImageContext(rect.size);
-                CGContextRef context = UIGraphicsGetCurrentContext();
-                CGContextSetFillColorWithColor(context, [[DFTransparentNavibarConfigure config].normalNaviBgColor CGColor]);
-                CGContextFillRect(context, rect);
-                UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
+        if (!objc_getAssociatedObject(self, "TWN_INIT_FINISHED")) {
+            objc_setAssociatedObject(self, "TWN_INIT_FINISHED", @"1", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            if ([DFTransparentNavibarConfigure config].normalNaviBgImage||[DFTransparentNavibarConfigure config].normalNaviBgColor) {
                 
-                [((UINavigationController*)self).navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+                ((UINavigationController*)self).navigationBar.translucent = NO;
+                
+                [((UINavigationController*)self).navigationBar setShadowImage:[UIImage new]];
+                if ([DFTransparentNavibarConfigure config].normalNaviBgImage) {
+                    [((UINavigationController*)self).navigationBar setBackgroundImage:[DFTransparentNavibarConfigure config].normalNaviBgImage forBarMetrics:UIBarMetricsDefault];
+                } else {
+                    CGRect rect = CGRectMake(0.0f, 0.0f, 64, 64);
+                    UIGraphicsBeginImageContext(rect.size);
+                    CGContextRef context = UIGraphicsGetCurrentContext();
+                    CGContextSetFillColorWithColor(context, [[DFTransparentNavibarConfigure config].normalNaviBgColor CGColor]);
+                    CGContextFillRect(context, rect);
+                    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    
+                    [((UINavigationController*)self).navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+                }
             }
         }
+        
     }
     
     BOOL hasCustomize = ([self tnw_customizeNavibarBGColor]||[self tnw_customizeNavibarBGImage]);
@@ -107,7 +111,8 @@
 
 - (void)__tnw_viewWillAppear:(BOOL)animated {
     [self __tnw_viewWillAppear:animated];
-    if (self.needsFakeNavibar&&!self.fakeNavigationBar) {
+    
+     if (self.needsFakeNavibar&&!self.fakeNavigationBar) {
         [self createFakeNaviBarOnTop:NO];
     }
 }

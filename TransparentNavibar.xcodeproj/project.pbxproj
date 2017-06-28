@@ -16,6 +16,7 @@
 		AA725F4D1F0344E5004DCD11 /* DFTransparentNavibarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F481F0344E5004DCD11 /* DFTransparentNavibarConfigure.m */; };
 		AA725F4E1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F4A1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m */; };
 		AA725F4F1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F4C1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m */; };
+		AACF06241F038D670035862A /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACF06231F038D670035862A /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		AA725F4A1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+TransparentNavibar.m"; sourceTree = "<group>"; };
 		AA725F4B1F0344E5004DCD11 /* UIViewController+TransparentNavibar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TransparentNavibar.h"; sourceTree = "<group>"; };
 		AA725F4C1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TransparentNavibar.m"; sourceTree = "<group>"; };
+		AACF06221F038D670035862A /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		AACF06231F038D670035862A /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				AA725F3D1F03448A004DCD11 /* LaunchScreen.storyboard */,
 				AA725F401F03448A004DCD11 /* Info.plist */,
 				AA725F2F1F03448A004DCD11 /* Supporting Files */,
+				AACF06221F038D670035862A /* ThirdViewController.h */,
+				AACF06231F038D670035862A /* ThirdViewController.m */,
 			);
 			path = TransparentNavibar;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				AA725F4E1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m in Sources */,
 				AA725F311F03448A004DCD11 /* main.m in Sources */,
 				AA725F4D1F0344E5004DCD11 /* DFTransparentNavibarConfigure.m in Sources */,
+				AACF06241F038D670035862A /* ThirdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +345,7 @@
 				AA725F451F03448A004DCD11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
