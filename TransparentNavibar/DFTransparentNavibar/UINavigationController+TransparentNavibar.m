@@ -136,12 +136,12 @@
     
     [self __tnw_pushViewController:viewController animated:animated];
     
+    /*
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")) {
         [viewController loadViewIfNeeded];
     } else {
-//        [viewController loadView];
         [viewController viewDidLoad];
-    }
+    }*/
     
     if (lastVC.navibarAlpha == viewController.navibarAlpha) {
         [self setNavigationBarAlpha:lastVC.navibarAlpha];
