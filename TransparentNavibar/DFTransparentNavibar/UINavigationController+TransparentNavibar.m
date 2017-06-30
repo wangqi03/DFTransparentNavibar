@@ -143,13 +143,20 @@
         [viewController viewDidLoad];
     }*/
     
-    if (lastVC.navibarAlpha == viewController.navibarAlpha) {
-        [self setNavigationBarAlpha:lastVC.navibarAlpha];
-    } else {
+    if (lastVC&&viewController) {
+        if (lastVC.navibarAlpha == viewController.navibarAlpha) {
+            [self setNavigationBarAlpha:lastVC.navibarAlpha];
+        } else {
+            if (viewController.navibarAlpha == 1) {
+                [viewController setNeedsFakeNavibar:YES];
+            } else {
+                [lastVC createFakeNaviBarOnTop:YES];
+            }
+        }
+    } else if (!lastVC) {
+        [self setNavigationBarAlpha:viewController.navibarAlpha];
         if (viewController.navibarAlpha == 1) {
             [viewController setNeedsFakeNavibar:YES];
-        } else {
-            [lastVC createFakeNaviBarOnTop:YES];
         }
     }
 }
