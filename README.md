@@ -12,7 +12,7 @@ pod 'DFTransparentNavibar'
 
 1. Set a default navi bar background image/color in [DFTransparentNavibarConfigure config] before any of your view controller initialized.
 
-2. Control navigation bar's alpha by setting navibarAlpha of each view controller.
+2. Control navigation bar's alpha by setting navibarAlpha of each view controller. Or override - (CGFloat)defaultNavibarAlpha to provide a default value for each of them.
 
 3. If you need a navigation bar to be other than the default background. Override the following methods in the each view controllers:
 - (UIImage*)tnw_customizeNavibarBGImage;

@@ -17,10 +17,12 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-    self.navibarAlpha = 0;
     [super viewDidLoad];
     self.title = @"hello";
-    
+}
+
+- (CGFloat)defaultNavibarAlpha {
+    return 0;
 }
 
 
