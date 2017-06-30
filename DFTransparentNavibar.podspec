@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DFTransparentNavibar"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "DFTransparentNavibar helps you to manage transparent navigation bar stuff"
 
   # This description is used to generate tags and improve search results.
@@ -94,7 +94,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "TransparentNavibar/**/*.{h,m}"
+  s.source_files  = "TransparentNavibar/DFTransparentNavibar/**/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"

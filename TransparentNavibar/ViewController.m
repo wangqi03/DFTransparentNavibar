@@ -20,6 +20,7 @@
     self.navibarAlpha = 0;
     [super viewDidLoad];
     self.title = @"hello";
+    
 }
 
 

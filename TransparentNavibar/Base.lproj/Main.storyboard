@@ -98,12 +98,34 @@
                     <view key="view" contentMode="scaleToFill" id="yNc-k7-KCR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="of4-YW-wk8">
+                                <rect key="frame" x="0.0" y="-64" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_2818.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="lu5-Sj-Ocl">
+                                        <rect key="frame" x="0.0" y="-64" width="320" height="802"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="w4B-hz-PZV" id="m68-VP-eZC"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="scrollview" destination="of4-YW-wk8" id="p3p-Yw-qoh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hY2-gB-ydp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="-71"/>
+            <point key="canvasLocation" x="1370.625" y="-71.25"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IMG_2818.JPG" width="400" height="346"/>
+    </resources>
 </document>
