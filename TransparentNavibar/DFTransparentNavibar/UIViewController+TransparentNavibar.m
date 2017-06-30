@@ -140,10 +140,14 @@
     NSString* alpha = objc_getAssociatedObject(self, "tnw_navibarAlpha");
     
     if (!alpha) {
-        return 1;
+        return [self defaultNavibarAlpha];
     }
     
     return alpha.doubleValue;
+}
+
+- (CGFloat)defaultNavibarAlpha {
+    return 1;
 }
 
 #pragma mark - customize
