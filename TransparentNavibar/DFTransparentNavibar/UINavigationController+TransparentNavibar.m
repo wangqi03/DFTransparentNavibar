@@ -47,9 +47,9 @@
         method_exchangeImplementations(original, exchanged);
         
         //exchange update interactive
-        original = class_getInstanceMethod([self class], @selector(_updateInteractiveTransition:));
+        /*original = class_getInstanceMethod([self class], @selector(_updateInteractiveTransition:));
         exchanged = class_getInstanceMethod([self class], @selector(__tnw_updateInteractiveTransition:));
-        method_exchangeImplementations(original, exchanged);
+        method_exchangeImplementations(original, exchanged);*/
         
         //set delegate
         original = class_getInstanceMethod([self class], @selector(setDelegate:));
@@ -208,13 +208,14 @@ static NSTimer* __dummyTimer = nil;
         [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.customizedFakeNaviBar.alpha = lastHasCustomizeNavi?1:0;
         } completion:^(BOOL finished) {
-                        if (!lastHasCustomizeNavi) {
+                        /*if (!lastHasCustomizeNavi) {
                             self.customizedFakeNaviBar = nil;
-                        }
+                        }*/
         }];
     }
 }
 
+/*
 - (void)__tnw_updateInteractiveTransition:(CGFloat)percentComplete {
     [self __tnw_updateInteractiveTransition:percentComplete];
     [__dummyTimer invalidate];
@@ -248,7 +249,7 @@ static NSTimer* __dummyTimer = nil;
             }
         }
     }
-}
+}*/
 
 #pragma mark - fake cover bar
 - (void)setCustomizedFakeNaviBar:(UIView *)customizedFakeNaviBar {
