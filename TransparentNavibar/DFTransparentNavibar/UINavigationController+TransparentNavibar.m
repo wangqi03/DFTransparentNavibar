@@ -8,6 +8,7 @@
 #import "UINavigationController+TransparentNavibar.h"
 #import "UIViewController+TransparentNavibar.h"
 #import "DFTransparentNavibarConfigure.h"
+#import "UINavigationBar+TransparentNavibar.h"
 #import <objc/runtime.h>
 
 //system version
@@ -30,7 +31,7 @@
 
 #pragma mark - change the alpha
 - (void)setNavigationBarAlpha:(CGFloat)alpha {
-    ((UIView*)self.navigationBar.subviews.firstObject).alpha = alpha;
+    self.navigationBar.tnw_fakeNaviBgView.alpha = alpha;
 }
 
 #pragma mark - method exchange
@@ -263,7 +264,7 @@ static NSTimer* __dummyTimer = nil;
     
     customizedFakeNaviBar.frame = CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.frame.size.width, 64);
     
-    UIView* navibg = self.navigationBar.subviews.firstObject;
+    UIView* navibg = self.navigationBar.tnw_fakeNaviBgView;//.subviews.firstObject;
     if ([navibg isKindOfClass:[UIImageView class]]) {
         [navibg addSubview:customizedFakeNaviBar];
     } else {

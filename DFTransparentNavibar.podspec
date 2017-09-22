@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DFTransparentNavibar"
-  s.version      = "1.0.6"
+  s.version      = "1.0.7"
   s.summary      = "DFTransparentNavibar helps you to manage transparent navigation bar stuff"
 
   # This description is used to generate tags and improve search results.
@@ -29,6 +29,7 @@ Pod::Spec.new do |s|
 		       All your navi bar will be set.
                        You can control the navi bar's alpha by setting the navibarAlpha of UIViewController
 		       Implement twn_customizedNavibarBackgroundColor in UIViewController for exceptions
+		       Bear in mind that the navigation bar translucent should always be set to YES
                        DESC
 
   s.homepage     = "https://github.com/wangqi03/DFTransparentNavibar"

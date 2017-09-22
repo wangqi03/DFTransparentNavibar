@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define NAVI_HEIGHT (self.navigationController.navigationBar.frame.size.height+[UIApplication sharedApplication].statusBarFrame.size.height)
+
 @interface UINavigationController (TransparentNavibar)<UINavigationControllerDelegate>
 
 - (void)setNavigationBarAlpha:(CGFloat)alpha;

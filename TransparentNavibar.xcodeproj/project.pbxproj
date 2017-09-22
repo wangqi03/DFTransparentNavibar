@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA5879691F74B7ED00E25479 /* UINavigationBar+TransparentNavibar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5879681F74B7ED00E25479 /* UINavigationBar+TransparentNavibar.m */; };
 		AA725F311F03448A004DCD11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F301F03448A004DCD11 /* main.m */; };
 		AA725F341F03448A004DCD11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F331F03448A004DCD11 /* AppDelegate.m */; };
 		AA725F371F03448A004DCD11 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F361F03448A004DCD11 /* ViewController.m */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA5879671F74B7EC00E25479 /* UINavigationBar+TransparentNavibar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+TransparentNavibar.h"; sourceTree = "<group>"; };
+		AA5879681F74B7ED00E25479 /* UINavigationBar+TransparentNavibar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+TransparentNavibar.m"; sourceTree = "<group>"; };
 		AA725F2C1F03448A004DCD11 /* TransparentNavibar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransparentNavibar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA725F301F03448A004DCD11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA725F321F03448A004DCD11 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 		AA725F461F0344E5004DCD11 /* DFTransparentNavibar */ = {
 			isa = PBXGroup;
 			children = (
+				AA5879671F74B7EC00E25479 /* UINavigationBar+TransparentNavibar.h */,
+				AA5879681F74B7ED00E25479 /* UINavigationBar+TransparentNavibar.m */,
 				AA725F471F0344E5004DCD11 /* DFTransparentNavibarConfigure.h */,
 				AA725F481F0344E5004DCD11 /* DFTransparentNavibarConfigure.m */,
 				AA725F491F0344E5004DCD11 /* UINavigationController+TransparentNavibar.h */,
@@ -184,6 +189,7 @@
 			files = (
 				AA725F371F03448A004DCD11 /* ViewController.m in Sources */,
 				AA725F4F1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m in Sources */,
+				AA5879691F74B7ED00E25479 /* UINavigationBar+TransparentNavibar.m in Sources */,
 				AA725F341F03448A004DCD11 /* AppDelegate.m in Sources */,
 				AA725F4E1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m in Sources */,
 				AA725F311F03448A004DCD11 /* main.m in Sources */,
