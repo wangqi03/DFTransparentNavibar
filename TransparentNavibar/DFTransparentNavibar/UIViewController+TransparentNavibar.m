@@ -120,33 +120,33 @@
 - (void)__tnw_viewDidAppear:(BOOL)animated {
     [self __tnw_viewDidAppear:animated];
 #ifdef DEBUG
-    NSLog(@"%.2f",self.navibarAlpha);
+    NSLog(@"%.2f",self.twn_preferredNaviAlpha);
 #endif
-    [self.navigationController setNavigationBarAlpha:self.navibarAlpha];
+    [self.navigationController setNavigationBarAlpha:self.twn_preferredNaviAlpha];
 }
 
 #pragma mark - navi bar alpha
-- (void)setNavibarAlpha:(CGFloat)navibarAlpha {
-    objc_setAssociatedObject(self, "tnw_navibarAlpha", [NSString stringWithFormat:@"%f",navibarAlpha], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setNavibarAlpha:(CGFloat)twn_preferredNaviAlpha {
+    objc_setAssociatedObject(self, "tnw_navibarAlpha", [NSString stringWithFormat:@"%f",twn_preferredNaviAlpha], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (navibarAlpha<1&&self.fakeNavigationBar) {
+    if (twn_preferredNaviAlpha<1&&self.fakeNavigationBar) {
         [self.fakeNavigationBar removeFromSuperview];
     }
     
-    [self.navigationController setNavigationBarAlpha:navibarAlpha];
+    [self.navigationController setNavigationBarAlpha:twn_preferredNaviAlpha];
 }
 
-- (CGFloat)navibarAlpha {
+- (CGFloat)twn_preferredNaviAlpha {
     NSString* alpha = objc_getAssociatedObject(self, "tnw_navibarAlpha");
     
     if (!alpha) {
-        return [self defaultNavibarAlpha];
+        return [self twn_defaultPreferredNaviAlpha];
     }
     
     return alpha.doubleValue;
 }
 
-- (CGFloat)defaultNavibarAlpha {
+- (CGFloat)twn_defaultPreferredNaviAlpha {
     return 1;
 }
 

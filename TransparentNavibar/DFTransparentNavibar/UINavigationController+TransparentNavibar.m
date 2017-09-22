@@ -108,7 +108,7 @@
     if ([context isCancelled]) {
         NSTimeInterval cancelDuration = [context transitionDuration] * (double)[context percentComplete];
         [UIView animateWithDuration:cancelDuration animations:^{
-            CGFloat nowAlpha = [context viewControllerForKey:UITransitionContextFromViewControllerKey].navibarAlpha;
+            CGFloat nowAlpha = [context viewControllerForKey:UITransitionContextFromViewControllerKey].twn_preferredNaviAlpha;
             
             [self setNavigationBarAlpha:nowAlpha];
             UIViewController* fromVC = [context viewControllerForKey:UITransitionContextFromViewControllerKey];
@@ -119,7 +119,7 @@
         NSTimeInterval finishDuration = [context transitionDuration] * (double)(1 - [context percentComplete]);
         [UIView animateWithDuration:finishDuration animations:^{
             CGFloat nowAlpha = [context viewControllerForKey:
-                                 UITransitionContextToViewControllerKey].navibarAlpha;
+                                 UITransitionContextToViewControllerKey].twn_preferredNaviAlpha;
             
             [self setNavigationBarAlpha:nowAlpha];
             UIViewController* toVC = [context viewControllerForKey:UITransitionContextToViewControllerKey];
@@ -144,18 +144,18 @@
     }*/
     
     if (lastVC&&viewController) {
-        if (lastVC.navibarAlpha == viewController.navibarAlpha) {
-            [self setNavigationBarAlpha:lastVC.navibarAlpha];
+        if (lastVC.twn_preferredNaviAlpha == viewController.twn_preferredNaviAlpha) {
+            [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
         } else {
-            if (viewController.navibarAlpha == 1) {
+            if (viewController.twn_preferredNaviAlpha == 1) {
                 [viewController setNeedsFakeNavibar:YES];
             } else {
                 [lastVC createFakeNaviBarOnTop:YES];
             }
         }
     } else if (!lastVC) {
-        [self setNavigationBarAlpha:viewController.navibarAlpha];
-        if (viewController.navibarAlpha == 1) {
+        [self setNavigationBarAlpha:viewController.twn_preferredNaviAlpha];
+        if (viewController.twn_preferredNaviAlpha == 1) {
             [viewController setNeedsFakeNavibar:YES];
         }
     }
@@ -166,10 +166,10 @@ static NSTimer* __dummyTimer = nil;
     UIViewController* viewController = [self __tnw_popViewControllerAnimated:animated];
     UIViewController* lastVC = [self.viewControllers lastObject];
     
-    if (lastVC.navibarAlpha == viewController.navibarAlpha) {
-        [self setNavigationBarAlpha:lastVC.navibarAlpha];
+    if (lastVC.twn_preferredNaviAlpha == viewController.twn_preferredNaviAlpha) {
+        [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
     } else {
-        if (viewController.navibarAlpha == 1) {
+        if (viewController.twn_preferredNaviAlpha == 1) {
             [self setNavigationBarAlpha:0];
         }
     }
@@ -225,8 +225,8 @@ static NSTimer* __dummyTimer = nil;
         id<UIViewControllerTransitionCoordinator> coor = topVC.transitionCoordinator;
         if (coor != nil) {
 
-            CGFloat fromAlpha = [coor viewControllerForKey:UITransitionContextFromViewControllerKey].navibarAlpha;
-            CGFloat toAlpha = [coor viewControllerForKey:UITransitionContextToViewControllerKey].navibarAlpha;
+            CGFloat fromAlpha = [coor viewControllerForKey:UITransitionContextFromViewControllerKey].twn_preferredNaviAlpha;
+            CGFloat toAlpha = [coor viewControllerForKey:UITransitionContextToViewControllerKey].twn_preferredNaviAlpha;
             
             if (fromAlpha == toAlpha) {
                 [self setNavigationBarAlpha:fromAlpha];

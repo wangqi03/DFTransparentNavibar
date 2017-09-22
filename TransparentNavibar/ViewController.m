@@ -21,14 +21,14 @@
     self.title = @"hello";
 }
 
-- (CGFloat)defaultNavibarAlpha {
+- (CGFloat)twn_defaultPreferredNaviAlpha {
     return 0;
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toNext"]) {
-        ((ViewController*)segue.destinationViewController).navibarAlpha = 1;
+        ((ViewController*)segue.destinationViewController).twn_preferredNaviAlpha = 1;
         segue.destinationViewController.title = @"again";
     }
 }
