@@ -124,7 +124,7 @@
 }
 
 #pragma mark - navi bar alpha
-- (void)setNavibarAlpha:(CGFloat)twn_preferredNaviAlpha {
+- (void)setTwn_preferredNaviAlpha:(CGFloat)twn_preferredNaviAlpha {
     objc_setAssociatedObject(self, "tnw_navibarAlpha", [NSString stringWithFormat:@"%f",twn_preferredNaviAlpha], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     if (twn_preferredNaviAlpha<1&&self.fakeNavigationBar) {
