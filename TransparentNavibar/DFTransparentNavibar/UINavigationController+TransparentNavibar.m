@@ -262,7 +262,7 @@ static NSTimer* __dummyTimer = nil;
         return;
     }
     
-    customizedFakeNaviBar.frame = CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.frame.size.width, 64);
+    customizedFakeNaviBar.frame = CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.frame.size.width, self.navigationBar.frame.size.height+[UIApplication sharedApplication].statusBarFrame.size.height);
     
     UIView* navibg = self.navigationBar.tnw_fakeNaviBgView;//.subviews.firstObject;
     if ([navibg isKindOfClass:[UIImageView class]]) {
