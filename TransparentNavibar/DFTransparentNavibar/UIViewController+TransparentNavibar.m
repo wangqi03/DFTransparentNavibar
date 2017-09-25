@@ -113,7 +113,7 @@
     [self __tnw_viewWillAppear:animated];
     
      if (self.needsFakeNavibar&&!self.fakeNavigationBar) {
-        [self createFakeNaviBarOnTop:YES];
+        [self createFakeNaviBarOnTop:NO];
     }
 }
 
