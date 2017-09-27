@@ -112,9 +112,9 @@
 - (void)__tnw_viewWillAppear:(BOOL)animated {
     [self __tnw_viewWillAppear:animated];
     
-     if (self.needsFakeNavibar&&!self.fakeNavigationBar) {
-        [self createFakeNaviBarOnTop:NO];
-    }
+     //if (self.needsFakeNavibar&&!self.fakeNavigationBar) {
+        //[self createFakeNaviBarOnTop:NO];
+    //}
 }
 
 - (void)__tnw_viewDidAppear:(BOOL)animated {
@@ -175,9 +175,13 @@
     return imageView;
 }
 
-- (void)createFakeNaviBarOnTop:(BOOL)onTop {
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:[DFTransparentNavibarConfigure config].normalNaviBgImage];
-    imageView.backgroundColor = [DFTransparentNavibarConfigure config].normalNaviBgColor;
+- (void)createFakeNaviBar {//OnTop:(BOOL)onTop {
+    UIImageView* imageView = self.fakeNavigationBar;
+    
+    if (!imageView) {
+        imageView = [[UIImageView alloc] initWithImage:[DFTransparentNavibarConfigure config].normalNaviBgImage];
+        imageView.backgroundColor = [DFTransparentNavibarConfigure config].normalNaviBgColor;
+    }
     
     if ([self tnw_customizeNavibarBGColor]) {
         imageView.backgroundColor = [self tnw_customizeNavibarBGColor];
@@ -190,11 +194,11 @@
     
     imageView.frame = CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.frame.size.width, NAVI_HEIGHT);
 
-    if (onTop) {
+    //if (onTop) {
         [self.view addSubview:imageView];
-    } else {
+    /*} else {
         [self.view insertSubview:imageView atIndex:0];
-    }
+    }*/
     
     self.view.clipsToBounds = NO;
     

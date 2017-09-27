@@ -48,9 +48,9 @@
         method_exchangeImplementations(original, exchanged);
         
         //exchange update interactive
-        /*original = class_getInstanceMethod([self class], @selector(_updateInteractiveTransition:));
-        exchanged = class_getInstanceMethod([self class], @selector(__tnw_updateInteractiveTransition:));
-        method_exchangeImplementations(original, exchanged);*/
+        /*original = class_getInstanceMethod([self class], @selector(viewDidLoad));
+        exchanged = class_getInstanceMethod([self class], @selector(__tnw_viewDidLoad));
+        method_exchangeImplementations(original, exchanged);//*/
         
         //set delegate
         original = class_getInstanceMethod([self class], @selector(setDelegate:));
@@ -137,6 +137,10 @@
     
     [self __tnw_pushViewController:viewController animated:animated];
     
+    if (self.navigationBarHidden) {
+        return;
+    }
+    
     /*
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")) {
         [viewController loadViewIfNeeded];
@@ -149,9 +153,9 @@
             [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
         } else {
             if (viewController.twn_preferredNaviAlpha == 1) {
-                [viewController setNeedsFakeNavibar:YES];
+                [viewController createFakeNaviBar];
             } else {
-                [lastVC createFakeNaviBarOnTop:YES];
+                [lastVC createFakeNaviBar];
             }
         }
     } else if (!lastVC) {
