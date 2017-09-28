@@ -153,7 +153,9 @@
             [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
         } else {
             if (viewController.twn_preferredNaviAlpha == 1) {
-                [viewController createFakeNaviBar];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [viewController createFakeNaviBar];
+                });
             } else {
                 [lastVC createFakeNaviBar];
             }
@@ -161,7 +163,9 @@
     } else if (!lastVC) {
         [self setNavigationBarAlpha:viewController.twn_preferredNaviAlpha];
         if (viewController.twn_preferredNaviAlpha == 1) {
-            [viewController setNeedsFakeNavibar:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [viewController createFakeNaviBar];
+            });
         }
     }
 }

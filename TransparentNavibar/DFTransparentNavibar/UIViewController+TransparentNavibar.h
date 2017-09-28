@@ -26,7 +26,7 @@
 //fake navi bar
 //normally you dont need to care about these 3.   :)
 @property (nonatomic,strong,readonly) UIImageView* fakeNavigationBar;
-@property (nonatomic) BOOL needsFakeNavibar;
+//@property (nonatomic) BOOL needsFakeNavibar;
 - (void)createFakeNaviBar;//OnTop:(BOOL)onTop;
 
 @end

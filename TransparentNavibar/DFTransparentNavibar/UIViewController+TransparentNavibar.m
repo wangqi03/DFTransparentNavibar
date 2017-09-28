@@ -29,9 +29,10 @@
         replaced = class_getInstanceMethod([self class], @selector(__tnw_viewDidAppear:));
         method_exchangeImplementations(original, replaced);
         
+        /*
         original = class_getInstanceMethod([self class], @selector(viewWillAppear:));
         replaced = class_getInstanceMethod([self class], @selector(__tnw_viewWillAppear:));
-        method_exchangeImplementations(original, replaced);
+        method_exchangeImplementations(original, replaced);//*/
     }
 }
 
@@ -109,13 +110,15 @@
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
-- (void)__tnw_viewWillAppear:(BOOL)animated {
-    [self __tnw_viewWillAppear:animated];
-    
-     //if (self.needsFakeNavibar&&!self.fakeNavigationBar) {
-        //[self createFakeNaviBarOnTop:NO];
-    //}
-}
+//- (void)__tnw_viewWillAppear:(BOOL)animated {
+//    [self __tnw_viewWillAppear:animated];
+//
+//     if (self.needsFakeNavibar&&!self.fakeNavigationBar) {
+////         dispatch_async(dispatch_get_main_queue(), ^{
+////             [self createFakeNaviBar];
+////         });
+//    }
+//}
 
 - (void)__tnw_viewDidAppear:(BOOL)animated {
     [self __tnw_viewDidAppear:animated];
@@ -213,7 +216,7 @@
 - (BOOL)useAlterNavigationBar {
     NSString* useLightColorNavigationBar = objc_getAssociatedObject(self, "tnw_useLightColorNavigationBar");
     return [useLightColorNavigationBar boolValue];
-}*/
+}
 
 - (void)setNeedsFakeNavibar:(BOOL)needsFakeNavibar {
     objc_setAssociatedObject(self, "tnw_needsFakeNavibar", (needsFakeNavibar?@"1":@"0"), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -222,6 +225,6 @@
 - (BOOL)needsFakeNavibar {
     NSString* needsFakeNavibar = objc_getAssociatedObject(self, "tnw_needsFakeNavibar");
     return [needsFakeNavibar boolValue];
-}
+}*/
 
 @end
