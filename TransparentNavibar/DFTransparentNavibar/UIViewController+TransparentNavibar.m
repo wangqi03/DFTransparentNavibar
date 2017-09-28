@@ -124,6 +124,7 @@
     [self __tnw_viewDidAppear:animated];
     
     [self.navigationController setNavigationBarAlpha:self.twn_preferredNaviAlpha];
+    [self.fakeNavigationBar removeFromSuperview];
 }
 
 #pragma mark - navi bar alpha
@@ -195,13 +196,13 @@
         imageView.image = [self tnw_customizeNavibarBGImage];
     }
     
-    imageView.frame = CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.frame.size.width, NAVI_HEIGHT);
+    if ([self.view isKindOfClass:[UIScrollView class]]) {
+        imageView.frame = CGRectMake(0, -((UIScrollView*)self.view).contentInset.top, [UIApplication sharedApplication].keyWindow.frame.size.width, NAVI_HEIGHT);
+    } else {
+        imageView.frame = CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.frame.size.width, NAVI_HEIGHT);
+    }
 
-    //if (onTop) {
-        [self.view addSubview:imageView];
-    /*} else {
-        [self.view insertSubview:imageView atIndex:0];
-    }*/
+    [self.view addSubview:imageView];
     
     self.view.clipsToBounds = NO;
     

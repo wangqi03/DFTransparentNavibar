@@ -162,11 +162,6 @@
         }
     } else if (!lastVC) {
         [self setNavigationBarAlpha:viewController.twn_preferredNaviAlpha];
-        if (viewController.twn_preferredNaviAlpha == 1) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [viewController createFakeNaviBar];
-            });
-        }
     }
 }
 
@@ -180,6 +175,7 @@ static NSTimer* __dummyTimer = nil;
     } else {
         if (viewController.twn_preferredNaviAlpha == 1) {
             [self setNavigationBarAlpha:0];
+            [viewController createFakeNaviBar];
         }
     }
     
