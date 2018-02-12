@@ -129,13 +129,23 @@
 
 #pragma mark - navi bar alpha
 - (void)setTwn_preferredNaviAlpha:(CGFloat)twn_preferredNaviAlpha {
-    objc_setAssociatedObject(self, "tnw_navibarAlpha", [NSString stringWithFormat:@"%f",twn_preferredNaviAlpha], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if (twn_preferredNaviAlpha<1&&self.fakeNavigationBar) {
+    CGFloat alpha = twn_preferredNaviAlpha;
+    if (alpha < 0) {
+        alpha = 0;
+    }
+    
+    if (alpha > 1) {
+        alpha = 1;
+    }
+    
+    objc_setAssociatedObject(self, "tnw_navibarAlpha", [NSString stringWithFormat:@"%f",alpha], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    if (alpha<1&&self.fakeNavigationBar) {
         [self.fakeNavigationBar removeFromSuperview];
     }
     
-    [self.navigationController setNavigationBarAlpha:twn_preferredNaviAlpha];
+    [self.navigationController setNavigationBarAlpha:alpha];
 }
 
 - (CGFloat)twn_preferredNaviAlpha {
@@ -145,7 +155,17 @@
         return [self twn_defaultPreferredNaviAlpha];
     }
     
-    return alpha.doubleValue;
+    CGFloat value = alpha.doubleValue;
+    
+    if (value < 0) {
+        return 0;
+    }
+    
+    if (value > 1) {
+        return 1;
+    }
+    
+    return value;
 }
 
 - (CGFloat)twn_defaultPreferredNaviAlpha {
