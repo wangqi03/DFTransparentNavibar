@@ -47,6 +47,11 @@
         exchanged = class_getInstanceMethod([self class], @selector(__tnw_popViewControllerAnimated:));
         method_exchangeImplementations(original, exchanged);
         
+        //exchange set
+        original = class_getInstanceMethod([self class], @selector(setViewControllers:));
+        exchanged = class_getInstanceMethod([self class], @selector(__tnw_setViewControllers:));
+        method_exchangeImplementations(original, exchanged);
+        
         //exchange update interactive
         /*original = class_getInstanceMethod([self class], @selector(viewDidLoad));
         exchanged = class_getInstanceMethod([self class], @selector(__tnw_viewDidLoad));
@@ -59,7 +64,7 @@
     }
 }
 
-#pragma mark -
+#pragma mark - delegate
 - (void)__tnw_setRealDelegate:(id<UINavigationControllerDelegate>)delegate {
     [self __tnw_setRealDelegate:self];
     objc_setAssociatedObject(self, "__tnw_delegate", delegate, OBJC_ASSOCIATION_ASSIGN);
@@ -192,6 +197,11 @@ static NSTimer* __dummyTimer = nil;
     [[NSRunLoop mainRunLoop] addTimer:__dummyTimer forMode:NSDefaultRunLoopMode];
     
     return viewController;
+}
+
+- (void)__tnw_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
+    [self __tnw_setViewControllers:viewControllers];
+    [self setNavigationBarAlpha:viewControllers.lastObject.twn_preferredNaviAlpha];
 }
 
 - (void)handleCustomizedNavibarWithDummy:(NSTimer*)timer {
