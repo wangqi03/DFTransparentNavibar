@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DFTransparentNavibar"
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
   s.summary      = "DFTransparentNavibar helps you to manage transparent navigation bar stuff"
 
   # This description is used to generate tags and improve search results.

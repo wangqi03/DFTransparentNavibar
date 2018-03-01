@@ -26,8 +26,6 @@
 }
 
 - (void)__tnw_setBackgroundImage:(UIImage *)backgroundImage forBarPosition:(UIBarPosition)barPosition barMetrics:(UIBarMetrics)barMetrics {
-    UIImage* image = [UIImage imageNamed:@"tnw_alpha_bg"];
-    
     [self __tnw_setBackgroundImage:[UIImage imageNamed:@"tnw_alpha_bg"] forBarPosition:barPosition barMetrics:barMetrics];
     self.tnw_backgroundImage = backgroundImage;
 }
@@ -75,7 +73,7 @@
     }
     
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    tnw_fakeNaviBgView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height+statusBarHeight);
+    tnw_fakeNaviBgView.frame = CGRectMake(0, 0, [UIApplication sharedApplication].statusBarFrame.size.width, self.bounds.size.height+statusBarHeight);
     [self.subviews.firstObject insertSubview:tnw_fakeNaviBgView atIndex:0];
     
     objc_setAssociatedObject(self, "tnw_fakeNaviBgView", tnw_fakeNaviBgView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
