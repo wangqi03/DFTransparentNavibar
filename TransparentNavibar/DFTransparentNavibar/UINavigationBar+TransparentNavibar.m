@@ -73,8 +73,9 @@
     }
     
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    tnw_fakeNaviBgView.frame = CGRectMake(0, 0, [UIApplication sharedApplication].statusBarFrame.size.width, self.bounds.size.height+statusBarHeight);
+    tnw_fakeNaviBgView.frame = CGRectMake(0, -statusBarHeight, [UIApplication sharedApplication].statusBarFrame.size.width, self.bounds.size.height+statusBarHeight);
     [self.subviews.firstObject insertSubview:tnw_fakeNaviBgView atIndex:0];
+    tnw_fakeNaviBgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     objc_setAssociatedObject(self, "tnw_fakeNaviBgView", tnw_fakeNaviBgView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
