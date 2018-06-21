@@ -20,5 +20,6 @@
 
 @property (nonatomic, strong) UIImage* normalNaviBgImage;
 @property (nonatomic, strong) UIColor* normalNaviBgColor;
+@property (nonatomic, strong) UIColor* normalNaviTintColor; //tbc...
 
 @end
