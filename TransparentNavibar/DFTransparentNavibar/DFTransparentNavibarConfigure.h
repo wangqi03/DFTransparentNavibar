@@ -5,8 +5,8 @@
 //  Created by wanghaojiao on 2017/6/23.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+@import Foundation;
+@import UIKit;
 
 @interface DFTransparentNavibarConfigure : NSObject
 

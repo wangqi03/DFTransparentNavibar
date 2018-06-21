@@ -5,7 +5,7 @@
 //  Created by wanghaojiao on 2017/9/22.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface UINavigationBar (TransparentNavibar)
 

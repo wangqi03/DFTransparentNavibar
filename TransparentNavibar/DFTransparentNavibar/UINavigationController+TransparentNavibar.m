@@ -230,42 +230,6 @@ static NSTimer* __dummyTimer = nil;
     }
 }
 
-/*
-- (void)__tnw_updateInteractiveTransition:(CGFloat)percentComplete {
-    [self __tnw_updateInteractiveTransition:percentComplete];
-    [__dummyTimer invalidate];
-    __dummyTimer = nil;
-    UIViewController *topVC = self.topViewController;
-    
-    if (topVC != nil) {
-        id<UIViewControllerTransitionCoordinator> coor = topVC.transitionCoordinator;
-        if (coor != nil) {
-
-            CGFloat fromAlpha = [coor viewControllerForKey:UITransitionContextFromViewControllerKey].twn_preferredNaviAlpha;
-            CGFloat toAlpha = [coor viewControllerForKey:UITransitionContextToViewControllerKey].twn_preferredNaviAlpha;
-            
-            if (fromAlpha == toAlpha) {
-                [self setNavigationBarAlpha:fromAlpha];
-            } else {
-                [self setNavigationBarAlpha:0];
-            }
-            
-            BOOL fromHasCustomizeNavi = ([[coor viewControllerForKey:UITransitionContextFromViewControllerKey] tnw_customizeNavibarBGColor]||[[coor viewControllerForKey:UITransitionContextFromViewControllerKey] tnw_customizeNavibarBGImage]);
-            BOOL toHasCustomizeNavi = ([[coor viewControllerForKey:UITransitionContextToViewControllerKey] tnw_customizeNavibarBGColor]||[[coor viewControllerForKey:UITransitionContextToViewControllerKey] tnw_customizeNavibarBGImage]);
-            if (fromHasCustomizeNavi != toHasCustomizeNavi) {
-                if (!self.customizedFakeNaviBar.superview&&toHasCustomizeNavi) {
-                    UIImageView* image = [[UIImageView alloc] init];
-                    image.image = [[coor viewControllerForKey:UITransitionContextToViewControllerKey] tnw_customizeNavibarBGImage];
-                    image.backgroundColor = [[coor viewControllerForKey:UITransitionContextToViewControllerKey] tnw_customizeNavibarBGColor];
-                    image.alpha = 0;
-                    self.customizedFakeNaviBar = image;
-                }
-                self.customizedFakeNaviBar.alpha = fromHasCustomizeNavi?(1-percentComplete):percentComplete;
-            }
-        }
-    }
-}*/
-
 #pragma mark - fake cover bar
 - (void)setCustomizedFakeNaviBar:(UIView *)customizedFakeNaviBar {
     if (self.customizedFakeNaviBar) {
@@ -297,23 +261,7 @@ static NSTimer* __dummyTimer = nil;
 }
 
 - (UIView*)customizedFakeNaviBar {
-    UIView* view = objc_getAssociatedObject(self, "tnw_customizedFakeNaviBar");
-    
-//    if (!view) {
-//        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
-//        view.backgroundColor = WHITE_NAVI_BG;
-//        view.alpha = 0;
-//        UIView* navibg = self.navigationBar.subviews.firstObject;
-//        for (UIImageView* image in navibg.subviews) {
-//            if (image.frame.origin.y == 0) {
-//                [image addSubview:view];
-//                break;
-//            }
-//        }
-//        [self setCustomizedFakeNaviBar:view];
-//    }
-    
-    return view;
+    return objc_getAssociatedObject(self, "tnw_customizedFakeNaviBar");
 }
 
 @end

@@ -127,7 +127,7 @@
     [self.fakeNavigationBar removeFromSuperview];
 }
 
-#pragma mark - navi bar alpha
+#pragma mark - navi bar & title alpha
 - (void)setTwn_preferredNaviAlpha:(CGFloat)twn_preferredNaviAlpha {
     
     CGFloat alpha = twn_preferredNaviAlpha;
@@ -168,7 +168,47 @@
     return value;
 }
 
+- (void)setTwn_preferredNaviTitleAlpha:(CGFloat)twn_preferredNaviTitleAlpha {
+    
+    CGFloat alpha = twn_preferredNaviTitleAlpha;
+    if (alpha < 0) {
+        alpha = 0;
+    }
+    
+    if (alpha > 1) {
+        alpha = 1;
+    }
+    
+    objc_setAssociatedObject(self, "tnw_navibarTitleAlpha", [NSString stringWithFormat:@"%f",alpha], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [self.navigationController setNavigationTitleAlpha:alpha];
+}
+
+- (CGFloat)twn_preferredNaviTitleAlpha {
+    NSString* alpha = objc_getAssociatedObject(self, "tnw_navibarTitleAlpha");
+    
+    if (!alpha) {
+        return [self twn_defaultPreferredNaviTitleAlpha];
+    }
+    
+    CGFloat value = alpha.doubleValue;
+    
+    if (value < 0) {
+        return 0;
+    }
+    
+    if (value > 1) {
+        return 1;
+    }
+    
+    return value;
+}
+
 - (CGFloat)twn_defaultPreferredNaviAlpha {
+    return 1;
+}
+
+- (CGFloat)twn_defaultPreferredNaviTitleAlpha {
     return 1;
 }
 
@@ -191,15 +231,10 @@
 
 #pragma mark - fake navi bar
 - (UIImageView*)fakeNavigationBar {
-    UIImageView* imageView = objc_getAssociatedObject(self, "tnw_fakeNavigationBar");
-//    if (!imageView) {
-//        
-//    }
-    
-    return imageView;
+    return objc_getAssociatedObject(self, "tnw_fakeNavigationBar");
 }
 
-- (void)createFakeNaviBar {//OnTop:(BOOL)onTop {
+- (void)createFakeNaviBar {
     UIImageView* imageView = self.fakeNavigationBar;
     
     if (!imageView) {
@@ -217,9 +252,9 @@
     }
     
     if ([self.view isKindOfClass:[UIScrollView class]]) {
-        imageView.frame = CGRectMake(0, -((UIScrollView*)self.view).contentInset.top, [UIApplication sharedApplication].keyWindow.frame.size.width, NAVI_HEIGHT);
+        imageView.frame = CGRectMake(0, -((UIScrollView*)self.view).contentInset.top, [UIApplication sharedApplication].keyWindow.frame.size.width, DF_TWN_NAVI_HEIGHT);
     } else {
-        imageView.frame = CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.frame.size.width, NAVI_HEIGHT);
+        imageView.frame = CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.frame.size.width, DF_TWN_NAVI_HEIGHT);
     }
 
     [self.view addSubview:imageView];
@@ -228,24 +263,5 @@
     
     objc_setAssociatedObject(self, "tnw_fakeNavigationBar", imageView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
-/*
-- (void)setUseAlterNavigationBar:(BOOL)useAlterNavigationBar {
-    objc_setAssociatedObject(self, "tnw_useLightColorNavigationBar", (useAlterNavigationBar?@"1":@"0"), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (BOOL)useAlterNavigationBar {
-    NSString* useLightColorNavigationBar = objc_getAssociatedObject(self, "tnw_useLightColorNavigationBar");
-    return [useLightColorNavigationBar boolValue];
-}
-
-- (void)setNeedsFakeNavibar:(BOOL)needsFakeNavibar {
-    objc_setAssociatedObject(self, "tnw_needsFakeNavibar", (needsFakeNavibar?@"1":@"0"), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (BOOL)needsFakeNavibar {
-    NSString* needsFakeNavibar = objc_getAssociatedObject(self, "tnw_needsFakeNavibar");
-    return [needsFakeNavibar boolValue];
-}*/
 
 @end
