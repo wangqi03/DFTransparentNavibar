@@ -103,16 +103,24 @@
 		AA725F461F0344E5004DCD11 /* DFTransparentNavibar */ = {
 			isa = PBXGroup;
 			children = (
-				AA5879671F74B7EC00E25479 /* UINavigationBar+TransparentNavibar.h */,
-				AA5879681F74B7ED00E25479 /* UINavigationBar+TransparentNavibar.m */,
+				AAD93FF320DBAE4F002F716B /* Core */,
 				AA725F471F0344E5004DCD11 /* DFTransparentNavibarConfigure.h */,
 				AA725F481F0344E5004DCD11 /* DFTransparentNavibarConfigure.m */,
-				AA725F491F0344E5004DCD11 /* UINavigationController+TransparentNavibar.h */,
-				AA725F4A1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m */,
 				AA725F4B1F0344E5004DCD11 /* UIViewController+TransparentNavibar.h */,
 				AA725F4C1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m */,
 			);
 			path = DFTransparentNavibar;
+			sourceTree = "<group>";
+		};
+		AAD93FF320DBAE4F002F716B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AA5879671F74B7EC00E25479 /* UINavigationBar+TransparentNavibar.h */,
+				AA5879681F74B7ED00E25479 /* UINavigationBar+TransparentNavibar.m */,
+				AA725F491F0344E5004DCD11 /* UINavigationController+TransparentNavibar.h */,
+				AA725F4A1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

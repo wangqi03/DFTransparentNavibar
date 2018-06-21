@@ -181,7 +181,9 @@
     
     objc_setAssociatedObject(self, "tnw_navibarTitleAlpha", [NSString stringWithFormat:@"%f",alpha], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
-    [self.navigationController setNavigationTitleAlpha:alpha];
+    if (self.navigationItem.titleView) {
+        self.navigationItem.titleView.alpha = alpha;
+    }
 }
 
 - (CGFloat)twn_preferredNaviTitleAlpha {

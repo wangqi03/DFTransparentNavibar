@@ -7,6 +7,7 @@
 
 @import UIKit;
 
+// See DFTransparentNavibarConfigure first.
 @interface UIViewController (TransparentNavibar)
 
 //navibar alpha

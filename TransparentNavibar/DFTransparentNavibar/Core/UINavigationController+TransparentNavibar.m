@@ -34,6 +34,10 @@
     self.navigationBar.tnw_fakeNaviBgView.alpha = alpha;
 }
 
+- (void)setNavigationTitleAlpha:(CGFloat)alpha {
+    
+}
+
 #pragma mark - method exchange
 + (void)load {
     if (self == [UINavigationController class]) {

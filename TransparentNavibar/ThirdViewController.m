@@ -17,7 +17,6 @@
 @implementation ThirdViewController
 
 - (void)viewDidLoad {
-    self.twn_preferredNaviAlpha = 1;
     [super viewDidLoad];
     self.title = @"oops";
     
@@ -26,6 +25,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.twn_preferredNaviAlpha = (100-scrollView.contentOffset.y)/100;
+    self.twn_preferredNaviTitleAlpha = self.twn_preferredNaviAlpha/2+0.5;
 }
 
 - (UIColor*)tnw_customizeNavibarBGColor {
@@ -33,7 +33,7 @@
 }
 
 - (UIColor*)tnw_customizeNavibarTintColor {
-    return [UIColor whiteColor];
+    return [UIColor blueColor];
 }
 
 @end
