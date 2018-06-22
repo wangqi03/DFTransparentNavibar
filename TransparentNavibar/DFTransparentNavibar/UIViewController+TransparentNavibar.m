@@ -66,18 +66,18 @@
     if ([self isKindOfClass:[UINavigationController class]]) {
         if (!objc_getAssociatedObject(self, "TWN_INIT_FINISHED")) {
             objc_setAssociatedObject(self, "TWN_INIT_FINISHED", @"1", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-            if ([DFTransparentNavibarConfigure config].normalNaviBgImage||[DFTransparentNavibarConfigure config].normalNaviBgColor) {
+            if ([DFTransparentNavibarConfigure config].defaultNaviBgImage||[DFTransparentNavibarConfigure config].defaultNaviBgColor) {
                 
 //                ((UINavigationController*)self).navigationBar.translucent = NO;
                 
                 [((UINavigationController*)self).navigationBar setShadowImage:[UIImage new]];
-                if ([DFTransparentNavibarConfigure config].normalNaviBgImage) {
-                    [((UINavigationController*)self).navigationBar setBackgroundImage:[DFTransparentNavibarConfigure config].normalNaviBgImage forBarMetrics:UIBarMetricsDefault];
+                if ([DFTransparentNavibarConfigure config].defaultNaviBgImage) {
+                    [((UINavigationController*)self).navigationBar setBackgroundImage:[DFTransparentNavibarConfigure config].defaultNaviBgImage forBarMetrics:UIBarMetricsDefault];
                 } else {
                     CGRect rect = CGRectMake(0.0f, 0.0f, 64, 64);
                     UIGraphicsBeginImageContext(rect.size);
                     CGContextRef context = UIGraphicsGetCurrentContext();
-                    CGContextSetFillColorWithColor(context, [[DFTransparentNavibarConfigure config].normalNaviBgColor CGColor]);
+                    CGContextSetFillColorWithColor(context, [[DFTransparentNavibarConfigure config].defaultNaviBgColor CGColor]);
                     CGContextFillRect(context, rect);
                     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
@@ -240,8 +240,8 @@
     UIImageView* imageView = self.fakeNavigationBar;
     
     if (!imageView) {
-        imageView = [[UIImageView alloc] initWithImage:[DFTransparentNavibarConfigure config].normalNaviBgImage];
-        imageView.backgroundColor = [DFTransparentNavibarConfigure config].normalNaviBgColor;
+        imageView = [[UIImageView alloc] initWithImage:[DFTransparentNavibarConfigure config].defaultNaviBgImage];
+        imageView.backgroundColor = [DFTransparentNavibarConfigure config].defaultNaviBgColor;
     }
     
     if ([self tnw_customizeNavibarBGColor]) {

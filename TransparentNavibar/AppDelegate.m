@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [DFTransparentNavibarConfigure config].normalNaviBgColor = [UIColor grayColor];
+    [DFTransparentNavibarConfigure config].defaultNaviBgColor = [UIColor grayColor];
     
     // Override point for customization after application launch.
     return YES;

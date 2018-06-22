@@ -8,7 +8,7 @@
 @import Foundation;
 @import UIKit;
 
-// Set normalNaviBgImage or normalNaviBgColor in AppDelegate's
+// Set either defaultNaviBgImage or defaultNaviBgColor in AppDelegate's
 // - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 // to correctly initialize configurations.
 //
@@ -18,8 +18,8 @@
 
 + (instancetype)config;
 
-@property (nonatomic, strong) UIImage* normalNaviBgImage;
-@property (nonatomic, strong) UIColor* normalNaviBgColor;
+@property (nonatomic, strong) UIImage* defaultNaviBgImage;
+@property (nonatomic, strong) UIColor* defaultNaviBgColor;
 @property (nonatomic, strong) UIColor* normalNaviTintColor; //tbc...
 
 @end
