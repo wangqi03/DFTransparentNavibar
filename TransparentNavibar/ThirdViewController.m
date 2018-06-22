@@ -18,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"oops";
+//    self.title = @"oops";
+    self.navigationItem.title = @"oops";
     
     self.scrollview.contentSize = CGSizeMake(self.scrollview.frame.size.width, self.scrollview.frame.size.height+100);
 }

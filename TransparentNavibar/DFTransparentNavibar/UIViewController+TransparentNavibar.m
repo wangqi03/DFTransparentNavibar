@@ -25,50 +25,34 @@
         replaced = class_getInstanceMethod([self class], @selector(__tnw_setTitle:));
         method_exchangeImplementations(original, replaced);
         
+        original = class_getInstanceMethod([self class], @selector(viewWillAppear:));
+        replaced = class_getInstanceMethod([self class], @selector(__tnw_viewWillAppear:));
+        method_exchangeImplementations(original, replaced);
+        
         original = class_getInstanceMethod([self class], @selector(viewDidAppear:));
         replaced = class_getInstanceMethod([self class], @selector(__tnw_viewDidAppear:));
         method_exchangeImplementations(original, replaced);
         
-        /*
-        original = class_getInstanceMethod([self class], @selector(viewWillAppear:));
-        replaced = class_getInstanceMethod([self class], @selector(__tnw_viewWillAppear:));
-        method_exchangeImplementations(original, replaced);//*/
+        original = class_getInstanceMethod([self class], NSSelectorFromString(@"dealloc"));
+        replaced = class_getInstanceMethod([self class], @selector(__tnw_dealloc));
+        method_exchangeImplementations(original, replaced);
     }
 }
 
 - (void)__tnw_setTitle:(NSString *)title {
     [self __tnw_setTitle:title];
-    
-    if ([self tnw_customizeNavibarTitleFont]||[self tnw_customizeNavibarTintColor]) {
-        UILabel* titleView = (UILabel*)self.navigationItem.titleView;
-        if (!titleView) {
-            titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-            self.navigationItem.titleView = titleView;
-            titleView.textAlignment = NSTextAlignmentCenter;
-        } else if (![titleView isKindOfClass:[UILabel class]]) {
-            return;
-        }
-        
-        UIFont* font = [self tnw_customizeNavibarTitleFont];
-        UIColor* color = [self tnw_customizeNavibarTintColor];
-        
-        titleView.textColor = color?color:self.navigationController.navigationBar.tintColor;
-        titleView.font = font?font:[UIFont boldSystemFontOfSize:17];
-        
-        titleView.text = title;
-        [titleView sizeToFit];
-    }
+    [self tnw_setNavigationBarTitle:title];
 }
 
 - (void)__tnw_viewDidLoad {
     [self __tnw_viewDidLoad];
+    
+    [self addObserver:self forKeyPath:@"navigationItem.title" options:NSKeyValueObservingOptionNew context:nil];
   
     if ([self isKindOfClass:[UINavigationController class]]) {
         if (!objc_getAssociatedObject(self, "TWN_INIT_FINISHED")) {
             objc_setAssociatedObject(self, "TWN_INIT_FINISHED", @"1", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             if ([DFTransparentNavibarConfigure config].defaultNaviBgImage||[DFTransparentNavibarConfigure config].defaultNaviBgColor) {
-                
-//                ((UINavigationController*)self).navigationBar.translucent = NO;
                 
                 [((UINavigationController*)self).navigationBar setShadowImage:[UIImage new]];
                 if ([DFTransparentNavibarConfigure config].defaultNaviBgImage) {
@@ -110,15 +94,14 @@
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
-//- (void)__tnw_viewWillAppear:(BOOL)animated {
-//    [self __tnw_viewWillAppear:animated];
-//
-//     if (self.needsFakeNavibar&&!self.fakeNavigationBar) {
-////         dispatch_async(dispatch_get_main_queue(), ^{
-////             [self createFakeNaviBar];
-////         });
-//    }
-//}
+- (void)__tnw_viewWillAppear:(BOOL)animated {
+    [self __tnw_viewWillAppear:animated];
+    UIColor* color = [self tnw_customizeNavibarTintColor];
+    if (!color) {
+        color = [DFTransparentNavibarConfigure config].defaultNaviTintColor;
+    }
+    [self.navigationController.navigationBar setTintColor:color];
+}
 
 - (void)__tnw_viewDidAppear:(BOOL)animated {
     [self __tnw_viewDidAppear:animated];
@@ -264,6 +247,40 @@
     self.view.clipsToBounds = NO;
     
     objc_setAssociatedObject(self, "tnw_fakeNavigationBar", imageView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+#pragma mark - navigationItem.title
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"navigationItem.title"] && object == self) {
+        [self tnw_setNavigationBarTitle:[change objectForKey:NSKeyValueChangeNewKey]];
+    }
+}
+
+- (void)tnw_setNavigationBarTitle:(NSString*)title {
+    UILabel* titleView = (UILabel*)self.navigationItem.titleView;
+    if (!titleView) {
+        titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+        titleView.tag = -182732;
+        self.navigationItem.titleView = titleView;
+        titleView.textAlignment = NSTextAlignmentCenter;
+    } else if (titleView.tag != -182732) {
+        return;
+    }
+    
+    UIFont* font = [self tnw_customizeNavibarTitleFont];
+    UIColor* color = [self tnw_customizeNavibarTintColor];
+    
+    
+    titleView.textColor = color?color:[DFTransparentNavibarConfigure config].defaultNaviTintColor;
+    titleView.font = font?font:[UIFont boldSystemFontOfSize:17];
+    
+    titleView.text = title;
+    [titleView sizeToFit];
+}
+
+- (void)__tnw_dealloc {
+    [self removeObserver:self forKeyPath:@"navigationItem.title"];
+    [self __tnw_dealloc];
 }
 
 @end
