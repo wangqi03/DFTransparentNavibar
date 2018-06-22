@@ -69,6 +69,10 @@
                     [((UINavigationController*)self).navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
                 }
             }
+            
+            if (![DFTransparentNavibarConfigure config].defaultNaviTintColor) {
+                [DFTransparentNavibarConfigure config].defaultNaviTintColor = ((UINavigationController*)self).navigationBar.tintColor;
+            }
         }
         
     }
