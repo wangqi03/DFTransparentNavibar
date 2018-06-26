@@ -48,6 +48,7 @@
     [self __tnw_viewDidLoad];
     
     [self addObserver:self forKeyPath:@"navigationItem.title" options:NSKeyValueObservingOptionNew context:nil];
+    objc_setAssociatedObject(self, "navigationItem.title_observed", @"1", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
   
     if ([self isKindOfClass:[UINavigationController class]]) {
         if (!objc_getAssociatedObject(self, "TWN_INIT_FINISHED")) {
@@ -283,7 +284,9 @@
 }
 
 - (void)__tnw_dealloc {
-    [self removeObserver:self forKeyPath:@"navigationItem.title"];
+    if (objc_getAssociatedObject(self, "navigationItem.title_observed")) {
+        [self removeObserver:self forKeyPath:@"navigationItem.title"];
+    }
     [self __tnw_dealloc];
 }
 
