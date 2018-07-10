@@ -244,7 +244,13 @@
     if ([self.view isKindOfClass:[UIScrollView class]]) {
         imageView.frame = CGRectMake(0, -((UIScrollView*)self.view).contentInset.top, [UIApplication sharedApplication].keyWindow.frame.size.width, DF_TWN_NAVI_HEIGHT);
     } else {
-        imageView.frame = CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.frame.size.width, DF_TWN_NAVI_HEIGHT);
+        CGRect rect = [self.view convertRect:self.view.bounds toView:[UIApplication sharedApplication].keyWindow];
+        
+        if (rect.origin.y > 0) {
+            imageView.frame = CGRectMake(0, -DF_TWN_NAVI_HEIGHT, [UIApplication sharedApplication].keyWindow.frame.size.width, DF_TWN_NAVI_HEIGHT);
+        } else {
+            imageView.frame = CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.frame.size.width, DF_TWN_NAVI_HEIGHT);
+        }
     }
 
     [self.view addSubview:imageView];
