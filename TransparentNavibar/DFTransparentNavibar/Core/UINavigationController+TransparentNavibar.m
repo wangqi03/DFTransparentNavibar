@@ -150,13 +150,6 @@
         return;
     }
     
-    /*
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")) {
-        [viewController loadViewIfNeeded];
-    } else {
-        [viewController viewDidLoad];
-    }*/
-    
     if (lastVC&&viewController) {
         if (lastVC.twn_preferredNaviAlpha == viewController.twn_preferredNaviAlpha) {
             [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
@@ -165,8 +158,10 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [viewController createFakeNaviBar];
                 });
-            } else {
+                [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
+            } else if (lastVC.twn_preferredNaviAlpha == 1) {
                 [lastVC createFakeNaviBar];
+                [self setNavigationBarAlpha:viewController.twn_preferredNaviAlpha];
             }
         }
     } else if (!lastVC) {
