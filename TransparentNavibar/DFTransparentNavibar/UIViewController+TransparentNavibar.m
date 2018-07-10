@@ -111,7 +111,9 @@
 - (void)__tnw_viewDidAppear:(BOOL)animated {
     [self __tnw_viewDidAppear:animated];
     
-    [self.navigationController setNavigationBarAlpha:self.twn_preferredNaviAlpha];
+    [UIView animateWithDuration:0.15 animations:^{
+        [self.navigationController setNavigationBarAlpha:self.twn_preferredNaviAlpha];
+    }];
     [self.fakeNavigationBar removeFromSuperview];
 }
 
