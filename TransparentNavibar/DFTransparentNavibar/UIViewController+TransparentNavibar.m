@@ -112,6 +112,7 @@
     [self __tnw_viewDidAppear:animated];
     
     [self.navigationController setNavigationBarAlpha:self.twn_preferredNaviAlpha];
+    [self.navigationController setNavigationTitleAlpha:self.twn_preferredNaviTitleAlpha];
     [self.fakeNavigationBar removeFromSuperview];
 }
 
