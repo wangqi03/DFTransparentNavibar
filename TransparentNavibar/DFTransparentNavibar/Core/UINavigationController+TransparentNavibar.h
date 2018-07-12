@@ -12,7 +12,6 @@
 @interface UINavigationController (TransparentNavibar)<UINavigationControllerDelegate>
 
 - (void)setNavigationBarAlpha:(CGFloat)alpha;
-- (void)setNavigationTitleAlpha:(CGFloat)alpha;
 @property (strong, nonatomic) UIView* customizedFakeNaviBar;
 
 @end

@@ -34,10 +34,6 @@
     self.navigationBar.tnw_fakeNaviBgView.alpha = alpha;
 }
 
-- (void)setNavigationTitleAlpha:(CGFloat)alpha {
-    
-}
-
 #pragma mark - method exchange
 + (void)load {
     if (self == [UINavigationController class]) {
@@ -177,9 +173,6 @@ static NSTimer* __dummyTimer = nil;
     if (lastVC.twn_preferredNaviAlpha == viewController.twn_preferredNaviAlpha) {
         [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
     } else {
-        
-        [self setNavigationBarAlpha:0];
-        
         if (viewController.twn_preferredNaviAlpha == 1) {
             [viewController createFakeNaviBar];
         } else {

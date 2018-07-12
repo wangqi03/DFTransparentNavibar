@@ -112,7 +112,6 @@
     [self __tnw_viewDidAppear:animated];
     
     [self.navigationController setNavigationBarAlpha:self.twn_preferredNaviAlpha];
-    [self.navigationController setNavigationTitleAlpha:self.twn_preferredNaviTitleAlpha];
     [self.fakeNavigationBar removeFromSuperview];
 }
 
@@ -172,6 +171,7 @@
 
     if (self.navigationItem.titleView) {
         self.navigationItem.titleView.alpha = alpha;
+        self.navigationItem.titleView.hidden = (alpha == 0);
     }
 }
 
@@ -275,6 +275,11 @@
         titleView.tag = -182732;
         self.navigationItem.titleView = titleView;
         titleView.textAlignment = NSTextAlignmentCenter;
+        
+        titleView.alpha = self.twn_preferredNaviTitleAlpha;
+        if (titleView.alpha == 0) {
+            titleView.hidden = YES;
+        }
     } else if (titleView.tag != -182732) {
         return;
     }
