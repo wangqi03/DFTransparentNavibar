@@ -174,6 +174,7 @@ static NSTimer* __dummyTimer = nil;
         [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
     } else {
         if (viewController.twn_preferredNaviAlpha == 1) {
+            [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
             [viewController createFakeNaviBar];
         } else {
             [lastVC createFakeNaviBar];
