@@ -296,7 +296,7 @@
     titleLabel.text = title;
     [titleLabel sizeToFit];
     
-    titleView.frame = titleLabel.frame;
+    titleView.frame = titleLabel.bounds;
     titleLabel.frame = titleView.bounds;
 }
 
