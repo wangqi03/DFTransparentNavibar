@@ -169,9 +169,8 @@
     
     objc_setAssociatedObject(self, "tnw_navibarTitleAlpha", [NSString stringWithFormat:@"%f",alpha], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
-    if (self.navigationItem.titleView) {
-        self.navigationItem.titleView.alpha = alpha;
-        self.navigationItem.titleView.hidden = (alpha == 0);
+    if (self.navigationItem.titleView.tag == -182732) {
+        [self.navigationItem.titleView.subviews lastObject].alpha = alpha;
     }
 }
 
@@ -269,17 +268,21 @@
 }
 
 - (void)tnw_setNavigationBarTitle:(NSString*)title {
-    UILabel* titleView = (UILabel*)self.navigationItem.titleView;
-    if (!titleView) {
-        titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    
+    UIView* titleView = self.navigationItem.titleView;
+    UILabel* titleLabel = [titleView.subviews lastObject];
+    
+    if (!titleView || !titleLabel) {
+        
+        titleView = [[UIView alloc] initWithFrame:CGRectZero];
         titleView.tag = -182732;
         self.navigationItem.titleView = titleView;
-        titleView.textAlignment = NSTextAlignmentCenter;
+    
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.alpha = self.twn_preferredNaviTitleAlpha;
+        [titleView addSubview:titleLabel];
         
-        titleView.alpha = self.twn_preferredNaviTitleAlpha;
-        if (titleView.alpha == 0) {
-            titleView.hidden = YES;
-        }
     } else if (titleView.tag != -182732) {
         return;
     }
@@ -287,12 +290,14 @@
     UIFont* font = [self tnw_customizeNavibarTitleFont];
     UIColor* color = [self tnw_customizeNavibarTintColor];
     
+    titleLabel.textColor = color?color:[DFTransparentNavibarConfigure config].defaultNaviTintColor;
+    titleLabel.font = font?font:[UIFont boldSystemFontOfSize:17];
     
-    titleView.textColor = color?color:[DFTransparentNavibarConfigure config].defaultNaviTintColor;
-    titleView.font = font?font:[UIFont boldSystemFontOfSize:17];
+    titleLabel.text = title;
+    [titleLabel sizeToFit];
     
-    titleView.text = title;
-    [titleView sizeToFit];
+    titleView.frame = titleLabel.frame;
+    titleLabel.frame = titleView.bounds;
 }
 
 - (void)__tnw_dealloc {
