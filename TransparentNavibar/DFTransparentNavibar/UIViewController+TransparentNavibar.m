@@ -269,41 +269,38 @@
 
 - (void)tnw_setNavigationBarTitle:(NSString*)title {
     
+    //get the views
     UIView* titleView = self.navigationItem.titleView;
     UILabel* titleLabel = [titleView.subviews lastObject];
     
+    //check if views exsit
     if (!titleView || !titleLabel) {
         
-        titleView = [[UIView alloc] initWithFrame:CGRectZero];
+        titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
         titleView.tag = -182732;
+        self.navigationItem.titleView = titleView;
         
         titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.alpha = self.twn_preferredNaviTitleAlpha;
-        
-        titleLabel.text = title;
-        [titleLabel sizeToFit];
-        
-        titleView.frame = titleLabel.bounds;
-        titleLabel.frame = titleView.bounds;
         [titleView addSubview:titleLabel];
-        self.navigationItem.titleView = titleView;
         
     } else if (titleView.tag != -182732) {
+        //return if it's a user defined view
         return;
     }
     
+    //set color and font
     UIFont* font = [self tnw_customizeNavibarTitleFont];
     UIColor* color = [self tnw_customizeNavibarTintColor];
     
     titleLabel.textColor = color?color:[DFTransparentNavibarConfigure config].defaultNaviTintColor;
     titleLabel.font = font?font:[UIFont boldSystemFontOfSize:17];
     
+    //set text and fix alignment
     titleLabel.text = title;
     [titleLabel sizeToFit];
-    
-    titleView.frame = titleLabel.bounds;
-    titleLabel.frame = titleView.bounds;
+    titleLabel.center = CGPointMake(5, 5);
 }
 
 - (void)__tnw_dealloc {
