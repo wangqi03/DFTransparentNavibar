@@ -46,6 +46,7 @@
 
 - (void)__tnw_viewDidLoad {
     [self __tnw_viewDidLoad];
+    self.view.clipsToBounds = YES;
     
     [self addObserver:self forKeyPath:@"navigationItem.title" options:NSKeyValueObservingOptionNew context:nil];
     objc_setAssociatedObject(self, "navigationItem.title_observed", @"1", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -225,9 +226,6 @@
 }
 
 - (void)createFakeNaviBar {
-    
-    self.view.clipsToBounds = YES;
-    
     UIImageView* imageView = self.fakeNavigationBar;
     
     if (!imageView) {
