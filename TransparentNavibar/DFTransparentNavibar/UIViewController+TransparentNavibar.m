@@ -225,6 +225,9 @@
 }
 
 - (void)createFakeNaviBar {
+    
+    self.view.clipsToBounds = YES;
+    
     UIImageView* imageView = self.fakeNavigationBar;
     
     if (!imageView) {
