@@ -276,12 +276,18 @@
         
         titleView = [[UIView alloc] initWithFrame:CGRectZero];
         titleView.tag = -182732;
-        self.navigationItem.titleView = titleView;
-    
+        
         titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.alpha = self.twn_preferredNaviTitleAlpha;
+        
+        titleLabel.text = title;
+        [titleLabel sizeToFit];
+        
+        titleView.frame = titleLabel.bounds;
+        titleLabel.frame = titleView.bounds;
         [titleView addSubview:titleLabel];
+        self.navigationItem.titleView = titleView;
         
     } else if (titleView.tag != -182732) {
         return;
