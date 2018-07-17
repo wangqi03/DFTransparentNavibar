@@ -270,13 +270,24 @@
 
 - (void)tnw_setNavigationBarTitle:(NSString*)title {
     
-    //get the views
+    //get title view
     UIView* titleView = self.navigationItem.titleView;
+    
+    //return if it's a user's view
+    if (titleView != nil && titleView.tag != -182732) {
+        return;
+    }
+    
+    //set to ni if the text is nil
+    if (![title isKindOfClass:[NSString class]] || title.length == 0) {
+        self.navigationItem.titleView = nil;
+        return;
+    }
+    
+    //get the title label
     UILabel* titleLabel = [titleView.subviews lastObject];
     
-    //check if views exsit
-    if (!titleView || !titleLabel) {
-        
+    if (!titleLabel) {
         titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
         titleView.tag = -182732;
         self.navigationItem.titleView = titleView;
@@ -286,19 +297,14 @@
         titleLabel.alpha = self.twn_preferredNaviTitleAlpha;
         [titleView addSubview:titleLabel];
         
-    } else if (titleView.tag != -182732) {
-        //return if it's a user defined view
-        return;
     }
     
-    //set color and font
     UIFont* font = [self tnw_customizeNavibarTitleFont];
     UIColor* color = [self tnw_customizeNavibarTintColor];
     
     titleLabel.textColor = color?color:[DFTransparentNavibarConfigure config].defaultNaviTintColor;
     titleLabel.font = font?font:[UIFont boldSystemFontOfSize:17];
     
-    //set text and fix alignment
     titleLabel.text = title;
     [titleLabel sizeToFit];
     titleLabel.center = CGPointMake(5, 5);
