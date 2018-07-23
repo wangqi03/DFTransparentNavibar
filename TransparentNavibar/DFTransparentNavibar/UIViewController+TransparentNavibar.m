@@ -52,7 +52,7 @@
     objc_setAssociatedObject(self, "navigationItem.title_observed", @"1", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     if (self.navigationItem.title) {
-        self.navigationItem.title = self.navigationItem.title;
+        [self tnw_setNavigationBarTitle:self.navigationItem.title];
     }
   
     if ([self isKindOfClass:[UINavigationController class]]) {
