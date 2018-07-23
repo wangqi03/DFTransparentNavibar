@@ -50,6 +50,10 @@
     
     [self addObserver:self forKeyPath:@"navigationItem.title" options:NSKeyValueObservingOptionNew context:nil];
     objc_setAssociatedObject(self, "navigationItem.title_observed", @"1", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    if (self.navigationItem.title) {
+        self.navigationItem.title = self.navigationItem.title;
+    }
   
     if ([self isKindOfClass:[UINavigationController class]]) {
         if (!objc_getAssociatedObject(self, "TWN_INIT_FINISHED")) {
