@@ -18,6 +18,7 @@
 		AA725F4E1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F4A1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m */; };
 		AA725F4F1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m in Sources */ = {isa = PBXBuildFile; fileRef = AA725F4C1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m */; };
 		AAA10ADB1F05FFD800E53C75 /* IMG_2818.JPG in Resources */ = {isa = PBXBuildFile; fileRef = AAA10ADA1F05FFD800E53C75 /* IMG_2818.JPG */; };
+		AAC8DD6F21070AF900D7652C /* DFNavigationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC8DD6E21070AF900D7652C /* DFNavigationTitleView.m */; };
 		AACF06241F038D670035862A /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACF06231F038D670035862A /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,9 @@
 		AA725F4B1F0344E5004DCD11 /* UIViewController+TransparentNavibar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TransparentNavibar.h"; sourceTree = "<group>"; };
 		AA725F4C1F0344E5004DCD11 /* UIViewController+TransparentNavibar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TransparentNavibar.m"; sourceTree = "<group>"; };
 		AAA10ADA1F05FFD800E53C75 /* IMG_2818.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2818.JPG; sourceTree = "<group>"; };
+		AAC8DD6D21070AF900D7652C /* DFNavigationTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFNavigationTitleView.h; sourceTree = "<group>"; };
+		AAC8DD6E21070AF900D7652C /* DFNavigationTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFNavigationTitleView.m; sourceTree = "<group>"; };
+		AAC8DD7021070B0E00D7652C /* DFTransparentNavibar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DFTransparentNavibar.podspec; sourceTree = "<group>"; };
 		AACF06221F038D670035862A /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		AACF06231F038D670035862A /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +63,7 @@
 		AA725F231F03448A004DCD11 = {
 			isa = PBXGroup;
 			children = (
+				AAC8DD7021070B0E00D7652C /* DFTransparentNavibar.podspec */,
 				AA725F2E1F03448A004DCD11 /* TransparentNavibar */,
 				AA725F2D1F03448A004DCD11 /* Products */,
 			);
@@ -119,6 +124,8 @@
 				AA5879681F74B7ED00E25479 /* UINavigationBar+TransparentNavibar.m */,
 				AA725F491F0344E5004DCD11 /* UINavigationController+TransparentNavibar.h */,
 				AA725F4A1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m */,
+				AAC8DD6D21070AF900D7652C /* DFNavigationTitleView.h */,
+				AAC8DD6E21070AF900D7652C /* DFNavigationTitleView.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -201,6 +208,7 @@
 				AA725F341F03448A004DCD11 /* AppDelegate.m in Sources */,
 				AA725F4E1F0344E5004DCD11 /* UINavigationController+TransparentNavibar.m in Sources */,
 				AA725F311F03448A004DCD11 /* main.m in Sources */,
+				AAC8DD6F21070AF900D7652C /* DFNavigationTitleView.m in Sources */,
 				AA725F4D1F0344E5004DCD11 /* DFTransparentNavibarConfigure.m in Sources */,
 				AACF06241F038D670035862A /* ThirdViewController.m in Sources */,
 			);

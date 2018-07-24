@@ -8,6 +8,7 @@
 #import "UIViewController+TransparentNavibar.h"
 #import "UINavigationController+TransparentNavibar.h"
 #import "DFTransparentNavibarConfigure.h"
+#import "DFNavigationTitleView.h"
 #import <objc/runtime.h>
 
 @implementation UIViewController (TransparentNavibar)
@@ -175,7 +176,7 @@
     objc_setAssociatedObject(self, "tnw_navibarTitleAlpha", [NSString stringWithFormat:@"%f",alpha], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
     if (self.navigationItem.titleView.tag == -182732) {
-        [self.navigationItem.titleView.subviews lastObject].alpha = alpha;
+        ((DFNavigationTitleView*)self.navigationItem.titleView).innerAlpha = alpha;
     }
 }
 
@@ -275,7 +276,7 @@
 - (void)tnw_setNavigationBarTitle:(NSString*)title {
     
     //get title view
-    UIView* titleView = self.navigationItem.titleView;
+    DFNavigationTitleView* titleView = (DFNavigationTitleView*)self.navigationItem.titleView;
     
     //return if it's a user's view
     if (titleView != nil && titleView.tag != -182732) {
@@ -288,30 +289,16 @@
         return;
     }
     
-    //get the title label
-    UILabel* titleLabel = [titleView.subviews lastObject];
-    
-    if (!titleLabel) {
-        titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    if (titleView == nil) {
+        titleView = [[DFNavigationTitleView alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
+        titleView.vc = self;
         titleView.tag = -182732;
+        titleView.titleText = title;
         self.navigationItem.titleView = titleView;
-        
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.alpha = self.twn_preferredNaviTitleAlpha;
-        [titleView addSubview:titleLabel];
-        
+    } else {
+        titleView.vc = self;
+        titleView.titleText = title;
     }
-    
-    UIFont* font = [self tnw_customizeNavibarTitleFont];
-    UIColor* color = [self tnw_customizeNavibarTintColor];
-    
-    titleLabel.textColor = color?color:[DFTransparentNavibarConfigure config].defaultNaviTintColor;
-    titleLabel.font = font?font:[UIFont boldSystemFontOfSize:17];
-    
-    titleLabel.text = title;
-    [titleLabel sizeToFit];
-    titleLabel.center = CGPointMake(5, 5);
 }
 
 - (void)__tnw_dealloc {

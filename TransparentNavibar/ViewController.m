@@ -29,7 +29,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toNext"]) {
         ((ViewController*)segue.destinationViewController).twn_preferredNaviAlpha = 1;
-        segue.destinationViewController.title = @"again";
+        segue.destinationViewController.title = @"againagainagainagainagainagainagain";
     }
 }
 
