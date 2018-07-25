@@ -39,6 +39,13 @@
     self.titleLabel.alpha = _innerAlpha;
 }
 
+- (void)setVc:(UIViewController *)vc {
+    _vc = vc;
+    if (_vc) {
+        self.innerAlpha = [vc twn_preferredNaviTitleAlpha];
+    }
+}
+
 #pragma mark - setup
 - (void)prepare {
     _innerAlpha = 1;
