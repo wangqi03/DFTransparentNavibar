@@ -47,6 +47,10 @@
         exchanged = class_getInstanceMethod([self class], @selector(__tnw_popViewControllerAnimated:));
         method_exchangeImplementations(original, exchanged);
         
+        original = class_getInstanceMethod([self class], @selector(popToRootViewControllerAnimated:));
+        exchanged = class_getInstanceMethod([self class], @selector(__tnw_popToRootViewControllerAnimated:));
+        method_exchangeImplementations(original, exchanged);
+        
         //exchange set
         original = class_getInstanceMethod([self class], @selector(setViewControllers:));
         exchanged = class_getInstanceMethod([self class], @selector(__tnw_setViewControllers:));
@@ -170,6 +174,21 @@ static NSTimer* __dummyTimer = nil;
     UIViewController* viewController = [self __tnw_popViewControllerAnimated:animated];
     UIViewController* lastVC = [self.viewControllers lastObject];
     
+    [self popFromViewController:viewController andLastVCRemaining:lastVC];
+    
+    return viewController;
+}
+
+- (NSArray<UIViewController *> *)__tnw_popToRootViewControllerAnimated:(BOOL)animated {
+    UIViewController* viewController = self.topViewController;
+    UIViewController* lastVC = [self.viewControllers firstObject];
+    
+    [self popFromViewController:viewController andLastVCRemaining:lastVC];
+    
+    return [self __tnw_popToRootViewControllerAnimated:animated];
+}
+
+- (void)popFromViewController:(UIViewController*)viewController andLastVCRemaining:(UIViewController*)lastVC {
     if (lastVC.twn_preferredNaviAlpha == viewController.twn_preferredNaviAlpha) {
         [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
     } else {
@@ -192,8 +211,6 @@ static NSTimer* __dummyTimer = nil;
     
     __dummyTimer = [NSTimer timerWithTimeInterval:0.05 target:self selector:@selector(handleCustomizedNavibarWithDummy:) userInfo:obj repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:__dummyTimer forMode:NSDefaultRunLoopMode];
-    
-    return viewController;
 }
 
 - (void)__tnw_setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
