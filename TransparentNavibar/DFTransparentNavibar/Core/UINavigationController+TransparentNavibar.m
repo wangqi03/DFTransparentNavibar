@@ -155,9 +155,10 @@
             [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
         } else {
             if (viewController.twn_preferredNaviAlpha == 1) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [viewController createFakeNaviBar];
-                });
+                //dispatch_async(dispatch_get_main_queue(), ^{
+                //    [viewController createFakeNaviBar];
+                //});
+                [viewController performSelector:@selector(createFakeNaviBar) withObject:nil afterDelay:0.05];
                 [self setNavigationBarAlpha:lastVC.twn_preferredNaviAlpha];
             } else if (lastVC.twn_preferredNaviAlpha == 1) {
                 [lastVC createFakeNaviBar];
