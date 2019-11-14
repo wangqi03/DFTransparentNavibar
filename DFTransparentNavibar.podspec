@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DFTransparentNavibar"
-  s.version      = "1.2.5"
+  s.version      = "1.2.6"
   s.summary      = "DFTransparentNavibar helps you to manage transparent navigation bar stuff"
 
   # This description is used to generate tags and improve search results.
@@ -69,7 +69,7 @@ Pod::Spec.new do |s|
   #
 
   #s.platform     = :ios
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"

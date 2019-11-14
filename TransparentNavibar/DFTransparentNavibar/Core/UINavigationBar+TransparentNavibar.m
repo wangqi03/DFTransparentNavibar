@@ -85,22 +85,18 @@
 }
 
 - (void)tnw_addFakeNaviBgViewToFirstSubview {
-    
-    UIView* subView = [self.subviews firstObject];
-    if (subView != nil) {
-        [subView insertSubview:self.tnw_fakeNaviBgView atIndex:0];
+    if (self.subviews.count) {
+        [self insertSubview:self.tnw_fakeNaviBgView atIndex:0];
         
         self.tnw_fakeNaviBgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-        if (subView.frame.origin.y < 0) {
-            self.tnw_fakeNaviBgView.frame = subView.bounds;
+        if (self.frame.origin.y < 0) {
+            self.tnw_fakeNaviBgView.frame = self.bounds;
         } else {
             self.tnw_fakeNaviBgView.frame = CGRectMake(0, -statusBarHeight, [UIApplication sharedApplication].statusBarFrame.size.width, self.bounds.size.height+statusBarHeight);
         }
-        
     }
-    
 }
 
 - (void)setFrame:(CGRect)frame {
