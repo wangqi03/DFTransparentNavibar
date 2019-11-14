@@ -22,8 +22,8 @@
     
     self.titleLabel.text = titleText;
     if (titleText.length) {
-        UIFont* font = [self.vc tnw_customizeNavibarTitleFont];
-        UIColor* color = [self.vc tnw_customizeNavibarTintColor];
+        UIFont* font = nil;//[self.vc tnw_customizeNavibarTitleFont];
+        UIColor* color = nil;//[self.vc tnw_customizeNavibarTintColor];
         
         self.titleLabel.textColor = color?color:[DFTransparentNavibarConfigure config].defaultNaviTintColor;
         self.titleLabel.font = font?font:[UIFont boldSystemFontOfSize:17];
@@ -44,7 +44,7 @@
 - (void)setVc:(UIViewController *)vc {
     _vc = vc;
     if (_vc) {
-        self.innerAlpha = [vc twn_preferredNaviTitleAlpha];
+        self.innerAlpha = 1;//[vc twn_preferredNaviTitleAlpha];
     }
 }
 

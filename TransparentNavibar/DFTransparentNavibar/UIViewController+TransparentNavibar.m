@@ -22,9 +22,9 @@
         Method replaced = class_getInstanceMethod([self class], @selector(__tnw_viewDidLoad));
         method_exchangeImplementations(original, replaced);
         
-        original = class_getInstanceMethod([self class], @selector(setTitle:));
-        replaced = class_getInstanceMethod([self class], @selector(__tnw_setTitle:));
-        method_exchangeImplementations(original, replaced);
+//        original = class_getInstanceMethod([self class], @selector(setTitle:));
+//        replaced = class_getInstanceMethod([self class], @selector(__tnw_setTitle:));
+//        method_exchangeImplementations(original, replaced);
         
         original = class_getInstanceMethod([self class], @selector(viewWillAppear:));
         replaced = class_getInstanceMethod([self class], @selector(__tnw_viewWillAppear:));
@@ -42,18 +42,21 @@
 
 - (void)__tnw_setTitle:(NSString *)title {
     [self __tnw_setTitle:title];
-    [self tnw_setNavigationBarTitle:title];
+    if (!self.navigationController.navigationBar.prefersLargeTitles) {
+        [self tnw_setNavigationBarTitle:title];
+    }
 }
 
 - (void)__tnw_viewDidLoad {
     [self __tnw_viewDidLoad];
     self.view.clipsToBounds = YES;
     
-    [self addObserver:self forKeyPath:@"navigationItem.title" options:NSKeyValueObservingOptionNew context:nil];
-    objc_setAssociatedObject(self, "navigationItem.title_observed", @"1", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    if (self.navigationItem.title) {
-        [self tnw_setNavigationBarTitle:self.navigationItem.title];
+    if (NO) {
+        [self startKVOForTitle];
+        
+        if (self.navigationItem.title) {
+            [self tnw_setNavigationBarTitle:self.navigationItem.title];
+        }
     }
   
     if ([self isKindOfClass:[UINavigationController class]]) {
@@ -267,6 +270,11 @@
 }
 
 #pragma mark - navigationItem.title
+- (void)startKVOForTitle {
+    [self addObserver:self forKeyPath:@"navigationItem.title" options:NSKeyValueObservingOptionNew context:nil];
+    objc_setAssociatedObject(self, "navigationItem.title_observed", @"1", OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"navigationItem.title"] && object == self) {
         [self tnw_setNavigationBarTitle:[change objectForKey:NSKeyValueChangeNewKey]];
@@ -307,5 +315,7 @@
     }
     [self __tnw_dealloc];
 }
+
+
 
 @end

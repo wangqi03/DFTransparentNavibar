@@ -18,4 +18,9 @@
     return sharedInstance;
 }
 
+- (void)setDefaultNaviTintColor:(UIColor *)defaultNaviTintColor {
+    _defaultNaviTintColor = defaultNaviTintColor;
+    [[UINavigationBar appearance] setTintColor:defaultNaviTintColor];
+}
+
 @end
