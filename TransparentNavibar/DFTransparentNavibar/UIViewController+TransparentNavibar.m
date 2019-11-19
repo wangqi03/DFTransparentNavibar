@@ -114,6 +114,8 @@
     if (!color) {
         color = [DFTransparentNavibarConfigure config].defaultNaviTintColor;
     }
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:color}];
     [self.navigationController.navigationBar setTintColor:color];
 }
 
